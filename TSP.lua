@@ -125,6 +125,12 @@ between clusters.
 	local diameter = radius * 2
 	--local taboo = 0
 
+	-- some helpers
+	local inf = math.huge
+	local tinsert = table.insert
+	local tremove = table.remove
+	local floor = math.floor
+
 	-- Create a copy of the nodes[] table and use this instead of the original because we want to modify this table
 	local nodes2 = {}
 	for i = 1, numNodes do
