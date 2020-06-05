@@ -115,12 +115,13 @@ between clusters.
 -- http://en.wikipedia.org/wiki/Cluster_analysis
 -- 25 January 2008
 ]]
-function TSP:ClusterRoute(nodes, zoneID, radius)
+	local nodes = {} -- copy and paste the contents of the ["route"] to cluster from your Routes.lua SavedVariables here
 	local weight = {} -- weight matrix
 	local metadata = {} -- metadata after clustering
 
 	local numNodes = #nodes
-	local zoneW, zoneH = Routes.Dragons:GetZoneSize(zoneID)
+	local zoneW, zoneH = 0.0, 0.0 -- get these from inside WoW by running /script print(Routes.Dragons:GetZoneSize(<insert zoneID here>))
+	local radius = 60 -- replace this with the cluster distance of your preference
 	local diameter = radius * 2
 	--local taboo = 0
 
@@ -252,7 +253,5 @@ function TSP:ClusterRoute(nodes, zoneID, radius)
 	end
 
 	--ChatFrame1:AddMessage(taboo.." tabooed")
-	return nodes, metadata, pathLength
-end
 
 -- vim: ts=4 noexpandtab
