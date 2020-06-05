@@ -260,4 +260,22 @@ between clusters.
 
 	--ChatFrame1:AddMessage(taboo.." tabooed")
 
+	-- output stuff to be pasted into Routes.lua over old SavedVariables data, no nice formatting since WoW itself will fix that anyway
+	print('["route"] = {')
+	for index, data in ipairs(nodes) do
+		print(string.format("%d,", data))
+	end
+	print('},')
+	print('["metadata"] = {')
+	for index, data in ipairs(metadata) do
+		print('{')
+		for innerIndex, innerData in ipairs(data) do
+			print(string.format("%d,", innerData))
+		end
+		print('},')
+	end
+	print('},')
+	print(string.format('["cluster_dist"] = %d,', radius))
+	print(string.format('["length"] = %f,', pathLength))
+
 -- vim: ts=4 noexpandtab
